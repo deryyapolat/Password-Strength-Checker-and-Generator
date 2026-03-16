@@ -8,7 +8,7 @@ The tool provides: a strength score, a visual strength bar, identified problems 
 If a password is weak, the user can quickly switch to the password generator.
 
 ## Password Generator
-The generator allows users to create strong passwords with custom options.
+The generator allows users to create strong passwords with custom options.  
 Users can choose: Password length, include lowercase/uppercase letters, numbers, symbols and specific word or number inside the password  
 The generated password is automatically analyzed to show its strength.
 
