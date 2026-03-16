@@ -6,7 +6,8 @@
   <title>Password Strength Checker & Generator</title>
   <style>
     * { box-sizing: border-box; }
-    body {
+    body
+    {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -18,7 +19,8 @@
       padding: 24px;
     }
 
-    .app {
+    .app
+    {
       width: 100%;
       max-width: 980px;
       background: rgba(15, 23, 42, 0.95);
@@ -28,29 +30,34 @@
       overflow: hidden;
     }
 
-    .header {
+    .header
+    {
       padding: 28px;
       border-bottom: 1px solid rgba(148, 163, 184, 0.15);
     }
 
-    .header h1 {
+    .header h1
+    {
       margin: 0 0 10px;
       font-size: 2rem;
     }
 
-    .header p {
+    .header p
+    {
       margin: 0;
       color: #94a3b8;
       line-height: 1.5;
     }
 
-    .content {
+    .content
+    {
       display: grid;
       grid-template-columns: 240px 1fr;
       min-height: 600px;
     }
 
-    .sidebar {
+    .sidebar
+    {
       padding: 20px;
       background: rgba(30, 41, 59, 0.5);
       border-right: 1px solid rgba(148, 163, 184, 0.15);
@@ -60,7 +67,8 @@
     }
 
     .tab-btn,
-    button {
+    button
+    {
       border: none;
       border-radius: 12px;
       padding: 12px 16px;
@@ -69,7 +77,8 @@
       transition: 0.2s ease;
     }
 
-    .tab-btn {
+    .tab-btn
+    {
       text-align: left;
       background: #1e293b;
       color: #e2e8f0;
@@ -77,30 +86,42 @@
     }
 
     .tab-btn.active,
-    .tab-btn:hover {
+    .tab-btn:hover
+    {
       background: #334155;
       border-color: #60a5fa;
     }
 
-    .main {
+    .main
+    {
       padding: 24px;
     }
 
-    .panel {
+    .panel
+    {
       display: none;
       animation: fadeIn 0.25s ease;
     }
 
-    .panel.active {
+    .panel.active
+    {
       display: block;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeIn
+    {
+      from
+      {
+        opacity: 0; transform: translateY(8px);
+      }
+      to
+      { 
+        opacity: 1; transform: translateY(0);
+      }
     }
 
-    .card {
+    .card
+    {
       background: #111827;
       border: 1px solid rgba(148, 163, 184, 0.15);
       border-radius: 18px;
@@ -108,21 +129,25 @@
       margin-bottom: 18px;
     }
 
-    .card h2, .card h3 {
+    .card h2, .card h3
+    {
       margin-top: 0;
     }
 
-    .row {
+    .row
+    {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
 
-    .field {
+    .field
+    {
       margin-bottom: 14px;
     }
 
-    label {
+    label
+    {
       display: block;
       margin-bottom: 8px;
       font-weight: 600;
@@ -131,7 +156,8 @@
 
     input[type="text"],
     input[type="password"],
-    input[type="number"] {
+    input[type="number"]
+    {
       width: 100%;
       padding: 12px 14px;
       border-radius: 12px;
@@ -142,18 +168,21 @@
       outline: none;
     }
 
-    input:focus {
+    input:focus
+    {
       border-color: #60a5fa;
       box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
     }
 
-    .checkbox-grid {
+    .checkbox-grid
+    {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .checkbox-item {
+    .checkbox-item
+    {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -163,26 +192,36 @@
       border: 1px solid #334155;
     }
 
-    .checkbox-item label {
+    .checkbox-item label
+    {
       margin: 0;
       font-weight: 500;
     }
 
-    .primary {
+    .primary
+    {
       background: #2563eb;
       color: white;
     }
 
-    .primary:hover { background: #1d4ed8; }
+    .primary:hover
+    { 
+      background: #1d4ed8;
+    }
 
-    .secondary {
+    .secondary
+    {
       background: #334155;
       color: white;
     }
 
-    .secondary:hover { background: #475569; }
+    .secondary:hover
+    { 
+      background: #475569;
+    }
 
-    .result-box {
+    .result-box
+    {
       padding: 14px;
       border-radius: 14px;
       background: #0f172a;
@@ -190,7 +229,8 @@
       word-break: break-word;
     }
 
-    .strength-meter {
+    .strength-meter
+    {
       height: 12px;
       background: #1e293b;
       border-radius: 999px;
@@ -198,27 +238,31 @@
       margin: 14px 0 8px;
     }
 
-    .strength-bar {
+    .strength-bar
+    {
       height: 100%;
       width: 0%;
       transition: width 0.3s ease;
     }
 
-    .issues-list, .tips-list {
+    .issues-list, .tips-list
+    {
       margin: 10px 0 0;
       padding-left: 18px;
       color: #cbd5e1;
       line-height: 1.6;
     }
 
-    .inline-actions {
+    .inline-actions
+    {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       margin-top: 14px;
     }
 
-    .pill {
+    .pill
+    {
       display: inline-block;
       margin-top: 10px;
       padding: 8px 12px;
@@ -227,22 +271,27 @@
       font-size: 0.9rem;
     }
 
-    .muted {
+    .muted
+    {
       color: #94a3b8;
     }
 
-    @media (max-width: 760px) {
-      .content {
+    @media (max-width: 760px)
+    {
+      .content
+      {
         grid-template-columns: 1fr;
       }
 
-      .sidebar {
+      .sidebar
+      {
         border-right: none;
         border-bottom: 1px solid rgba(148, 163, 184, 0.15);
       }
 
       .row,
-      .checkbox-grid {
+      .checkbox-grid
+      {
         grid-template-columns: 1fr;
       }
     }
@@ -348,17 +397,15 @@
   </div>
 
   <script>
-    const commonWords = [
-      "password", "admin", "user", "welcome", "hello", "qwerty", "letmein",
-      "football", "dragon", "monkey", "iloveyou", "secret", "login", "guest",
-      "abc", "test"
-    ];
+    const commonWords =["password", "admin", "user", "welcome", "hello", "qwerty", "letmein","football", "dragon", "monkey", "iloveyou", "secret", "login", "guest","abc", "test"];
 
     const tabs = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.panel');
 
-    tabs.forEach(btn => {
-      btn.addEventListener('click', () => {
+    tabs.forEach(btn =>
+      {
+      btn.addEventListener('click', () =>
+        {
         tabs.forEach(tab => tab.classList.remove('active'));
         panels.forEach(panel => panel.classList.remove('active'));
         btn.classList.add('active');
@@ -366,45 +413,55 @@
       });
     });
 
-    function hasConsecutiveNumbers(password) {
-      for (let i = 0; i < password.length - 2; i++) {
+    function hasConsecutiveNumbers(password)
+    {
+      for (let i = 0; i < password.length - 2; i++)
+      {
         const a = password.charCodeAt(i);
         const b = password.charCodeAt(i + 1);
         const c = password.charCodeAt(i + 2);
-        if (isDigit(password[i]) && isDigit(password[i + 1]) && isDigit(password[i + 2])) {
+        if (isDigit(password[i]) && isDigit(password[i + 1]) && isDigit(password[i + 2]))
+        {
           if (b === a + 1 && c === b + 1) return true;
         }
       }
       return false;
     }
 
-    function hasConsecutiveLetters(password) {
+    function hasConsecutiveLetters(password)
+    {
       const lower = password.toLowerCase();
-      for (let i = 0; i < lower.length - 2; i++) {
+      for (let i = 0; i < lower.length - 2; i++)
+      {
         const a = lower.charCodeAt(i);
         const b = lower.charCodeAt(i + 1);
         const c = lower.charCodeAt(i + 2);
-        if (isLetter(lower[i]) && isLetter(lower[i + 1]) && isLetter(lower[i + 2])) {
+        if (isLetter(lower[i]) && isLetter(lower[i + 1]) && isLetter(lower[i + 2]))
+        {
           if (b === a + 1 && c === b + 1) return true;
         }
       }
       return false;
     }
 
-    function isDigit(char) {
+    function isDigit(char)
+    {
       return /\d/.test(char);
     }
 
-    function isLetter(char) {
+    function isLetter(char)
+    {
       return /[a-z]/i.test(char);
     }
 
-    function containsCommonWord(password) {
+    function containsCommonWord(password)
+    {
       const lower = password.toLowerCase();
       return commonWords.find(word => lower.includes(word));
     }
 
-    function analyzePassword(password) {
+    function analyzePassword(password)
+    {
       let score = 0;
       const issues = [];
       const tips = [];
@@ -432,59 +489,69 @@
       }
 
       if (hasLower) score += 1;
-      else {
+      else
+      {
         issues.push('No lowercase letter found.');
         tips.push('Add lowercase letters.');
       }
 
       if (hasUpper) score += 1;
-      else {
+      else
+      {
         issues.push('No uppercase letter found.');
         tips.push('Add uppercase letters.');
       }
 
       if (hasNumber) score += 1;
-      else {
+      else
+      {
         issues.push('No number found.');
         tips.push('Add at least one number.');
       }
 
       if (hasSymbol) score += 1;
-      else {
+      else
+      {
         issues.push('No special character found.');
         tips.push('Add symbols like !, @, #, or $.');
       }
 
-      if (consecutiveNumbers) {
+      if (consecutiveNumbers)
+      {
         score -= 2;
         issues.push('Contains consecutive numbers like 123 or 456.');
         tips.push('Avoid predictable number sequences.');
       }
 
-      if (consecutiveLetters) {
+      if (consecutiveLetters)
+      {
         score -= 2;
         issues.push('Contains consecutive letters like abc or def.');
         tips.push('Avoid alphabet patterns.');
       }
 
-      if (repeatedPattern) {
+      if (repeatedPattern)
+      {
         score -= 2;
         issues.push('Contains repeated characters like aaa or 111.');
         tips.push('Reduce repeated character patterns.');
       }
 
-      if (commonWord) {
+      if (commonWord)
+      {
         score -= 3;
         issues.push(`Contains a common word: ${commonWord}`);
         tips.push('Avoid common words used in weak passwords.');
       }
 
-      if (onlyLetters) {
+      if (onlyLetters)
+      {
         score -= 2;
         issues.push('Password uses only letters.');
       }
 
-      if (onlyNumbers) {
+      if (onlyNumbers)
+      {
         score -= 3;
         issues.push('Password uses only numbers.');
       }
@@ -496,17 +563,22 @@
       let color = '#ef4444';
       let message = 'This password is weak and easy to guess.';
 
-      if (score >= 8) {
+      if (score >= 8)
+      {
         label = 'Very Strong';
         width = '100%';
         color = '#22c55e';
         message = 'This password is very strong.';
-      } else if (score >= 6) {
+      } 
+      else if (score >= 6)
+      {
         label = 'Strong';
         width = '75%';
         color = '#84cc16';
         message = 'This password is strong.';
-      } else if (score >= 4) {
+      }
+      else if (score >= 4)
+      {
         label = 'Medium';
         width = '50%';
         color = '#f59e0b';
@@ -527,9 +599,11 @@
     const weakPrompt = document.getElementById('weakPrompt');
     const goToGeneratorBtn = document.getElementById('goToGeneratorBtn');
 
-    checkBtn.addEventListener('click', () => {
+    checkBtn.addEventListener('click', () =>
+      {
       const password = passwordInput.value.trim();
-      if (!password) {
+      if (!password)
+      {
         scoreBox.textContent = 'Please enter a password first.';
         strengthLabel.textContent = 'No password';
         strengthBar.style.width = '0%';
@@ -558,28 +632,34 @@
       weakPrompt.style.display = (result.label === 'Weak') ? 'flex' : 'none';
     });
 
-    showPasswordBtn.addEventListener('click', () => {
+    showPasswordBtn.addEventListener('click', () =>
+      {
       passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
     });
 
-    goToGeneratorBtn.addEventListener('click', () => {
+    goToGeneratorBtn.addEventListener('click', () =>
+      {
       document.querySelector('[data-tab="generator"]').click();
     });
 
-    function shuffleString(str) {
+    function shuffleString(str)
+    {
       const arr = str.split('');
-      for (let i = arr.length - 1; i > 0; i--) {
+      for (let i = arr.length - 1; i > 0; i--)
+      {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
       return arr.join('');
     }
 
-    function randomChar(chars) {
+    function randomChar(chars)
+    {
       return chars[Math.floor(Math.random() * chars.length)];
     }
 
-    function generatePassword() {
+    function generatePassword()
+    {
       const length = parseInt(document.getElementById('lengthInput').value, 10);
       const includeLower = document.getElementById('includeLower').checked;
       const includeUpper = document.getElementById('includeUpper').checked;
@@ -597,58 +677,69 @@
       let pool = '';
       let guaranteed = '';
 
-      if (includeLower) {
+      if (includeLower)
+      {
         pool += lower;
         guaranteed += randomChar(lower);
       }
-      if (includeUpper) {
+      if (includeUpper)
+      {
         pool += upper;
         guaranteed += randomChar(upper);
       }
-      if (includeNumbers) {
+      if (includeNumbers)
+      {
         pool += numbers;
         guaranteed += randomChar(numbers);
       }
-      if (includeSymbols) {
+      if (includeSymbols)
+      {
         pool += symbols;
         guaranteed += randomChar(symbols);
       }
 
-      if (!pool) {
+      if (!pool)
+      {
         generatedPasswordBox.textContent = 'Please select at least one character type.';
         generatorNote.textContent = 'Generation failed because no character options were selected.';
         return;
       }
 
       const fixedPart = mustIncludeText || '';
-      if (fixedPart.length > length) {
+      if (fixedPart.length > length)
+      {
         generatedPasswordBox.textContent = 'The required text is longer than the selected password length.';
         generatorNote.textContent = 'Increase the password length or shorten the required text.';
         return;
       }
 
       const remainingLength = length - fixedPart.length;
-      if (remainingLength < guaranteed.length) {
+      if (remainingLength < guaranteed.length)
+      {
         generatedPasswordBox.textContent = 'The password length is too short for the selected options and required text.';
         generatorNote.textContent = 'Increase the password length or reduce the required text.';
         return;
       }
 
-      function buildCandidate() {
-        let extra = guaranteed;
-        while (extra.length < remainingLength) {
-          extra += randomChar(pool);
+          function buildCandidate()
+          {
+              let extra = guaranteed.split('');
+            
+              while (extra.length < remainingLength)
+              {
+                extra.push(randomChar(pool));
+              }
+            
+              extra = shuffleString(extra.join('')).slice(0, remainingLength);
+            
+              const insertAt = Math.floor(Math.random() * (extra.length + 1));
+              return extra.slice(0, insertAt) + fixedPart + extra.slice(insertAt);
         }
-
-        extra = shuffleString(extra).slice(0, remainingLength);
-
-        const insertAt = Math.floor(Math.random() * (extra.length + 1));
-        return extra.slice(0, insertAt) + fixedPart + extra.slice(insertAt);
-      }
 
       let password = buildCandidate();
       let attempts = 0;
-      while ((hasConsecutiveLetters(password) || hasConsecutiveNumbers(password)) && attempts < 10) {
+      while ((hasConsecutiveLetters(password) || hasConsecutiveNumbers(password)) && attempts < 10)
+      {
         password = buildCandidate();
         attempts++;
       }
@@ -660,15 +751,19 @@
 
     document.getElementById('generateBtn').addEventListener('click', generatePassword);
 
-    document.getElementById('copyBtn').addEventListener('click', async () => {
+    document.getElementById('copyBtn').addEventListener('click', async () =>
+      {
       const text = document.getElementById('generatedPassword').textContent;
-      if (!text || text === 'Your generated password will appear here.') {
+      if (!text || text === 'Your generated password will appear here.')
+      {
         return;
       }
-      try {
+      try
+      {
         await navigator.clipboard.writeText(text);
         document.getElementById('generatorNote').textContent = 'Password copied to clipboard.';
-      } catch (error) {
+      } catch (error)
+      {
         document.getElementById('generatorNote').textContent = 'Could not copy automatically. Please copy it manually.';
       }
     });
