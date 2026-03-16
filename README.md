@@ -3,7 +3,7 @@ A small web project that analyzes the strength of a user's password and generate
 The application helps users understand how secure their passwords are and suggests stronger alternatives if needed.
 
 ## Password Strength Checker
-The checker evaluates a password based on multiple security factors: Password length, lowercase/uppercase letters, numbers special characters, consecutive numbers/letters, repeated characters, common words  
+The checker evaluates a password based on multiple security factors: Password length, lowercase/uppercase letters, numbers/special characters, consecutive numbers/letters, repeated characters, common words  
 The tool provides: a strength score, a visual strength bar, identified problems and suggestions to improve the password and a "show/hide" button for the password  
 If a password is weak, the user can quickly switch to the password generator.
 
