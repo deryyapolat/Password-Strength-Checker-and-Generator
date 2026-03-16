@@ -627,21 +627,29 @@
         return;
       }
 
-      let password = guaranteed + fixedPart;
-      while (password.length < length) {
-        password += randomChar(pool);
+      const remainingLength = length - fixedPart.length;
+      if (remainingLength < guaranteed.length) {
+        generatedPasswordBox.textContent = 'The password length is too short for the selected options and required text.';
+        generatorNote.textContent = 'Increase the password length or reduce the required text.';
+        return;
       }
 
-      password = shuffleString(password).slice(0, length);
+      function buildCandidate() {
+        let extra = guaranteed;
+        while (extra.length < remainingLength) {
+          extra += randomChar(pool);
+        }
 
-      // Regenerate a few times if it accidentally creates obvious weak patterns.
+        extra = shuffleString(extra).slice(0, remainingLength);
+
+        const insertAt = Math.floor(Math.random() * (extra.length + 1));
+        return extra.slice(0, insertAt) + fixedPart + extra.slice(insertAt);
+      }
+
+      let password = buildCandidate();
       let attempts = 0;
       while ((hasConsecutiveLetters(password) || hasConsecutiveNumbers(password)) && attempts < 10) {
-        password = shuffleString(guaranteed + fixedPart);
-        while (password.length < length) {
-          password += randomChar(pool);
-        }
-        password = shuffleString(password).slice(0, length);
+        password = buildCandidate();
         attempts++;
       }
 
